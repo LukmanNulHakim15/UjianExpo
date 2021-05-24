@@ -1,21 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { Text, View } from 'react-native'
+import {createStackNavigator} from'@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native';
+import Home from './src/Home';
+import Login from './src/Login';
+import Register from './src/Register';
+import LoginJajal from './LoginJajal';
+import MainMenu from './src/MainMenu';
+import HistoryLaporan from './src/HistoryLaporan';
+import Laporan from './src/Laporan';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const Stack = createStackNavigator();
+ class App extends Component {
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          {/* <Stack.Screen name="Home" component={Home}/>
+           <Stack.Screen name="Register" component={Register}/> */}
+           <Stack.Screen name="Login" component={Login}/>
+           {/* <Stack.Screen name="MainMenu" component={MainMenu}/>
+           <Stack.Screen name="HistoryLaporan" component={HistoryLaporan}/>
+           <Stack.Screen name="Laporan" component={Laporan}/> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    )
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
